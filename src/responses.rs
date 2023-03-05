@@ -40,7 +40,7 @@ pub enum BundleResponse {
     // Auth token was bad
     UnknownToken,
     // Other error
-    Other(String),
+    Rejection(String),
 }
 
 impl std::fmt::Display for BundleResponse {
@@ -50,7 +50,7 @@ impl std::fmt::Display for BundleResponse {
             BundleResponse::TipTooLow(req) => write!(f, "TipTooLow {req}"),
             BundleResponse::NewBid(resp) => write!(f, "New Quote {resp}"),
             BundleResponse::UnknownToken => write!(f, "UnknownToken"),
-            BundleResponse::Other(s) => write!(f, "Other: {s}"),
+            BundleResponse::Rejection(s) => write!(f, "Rejection: {s}"),
         }
     }
 }

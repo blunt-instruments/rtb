@@ -33,8 +33,8 @@ where
     let app = Router::new()
         .route("/healthcheck", get(return_200))
         .route("/bid", post(bid_handler))
-        .route("/accept/:auth", post(bundle_handler))
-        .route("/accept", post(bundle_handler))
+        .route("/bundle/:auth", post(bundle_handler))
+        .route("/bundle", post(bundle_handler))
         .fallback(return_404)
         .with_state(Arc::new(t));
 
